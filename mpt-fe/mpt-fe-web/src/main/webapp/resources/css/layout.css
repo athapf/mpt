@@ -1,0 +1,17 @@
+body {
+    font-family: sans-serif;
+    font-size: 14pt;
+    background-color: lightgray;
+    margin: 10px;
+}
+
+input.button {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 12pt;
+    background-color: olivedrab;
+}
+
+input.button.main {
+    background-color: orange;
+}

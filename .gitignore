@@ -1,0 +1,10 @@
+*~
+.git/
+.idea/
+*.iml
+target/
+classes/
+tmp/
+
+*.db
+db-dump/
