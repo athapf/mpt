@@ -21,7 +21,7 @@
     <dependencies>
         <dependency>
             <groupId>mpt.db</groupId>
-            <artifactId>mpt-db-common</artifactId>
+            <artifactId>mpt-db-api</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>

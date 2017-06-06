@@ -10,7 +10,7 @@ import java.util.List;
  * @author thaler
  * @since 13.09.16
  */
-public interface INickName {
+public interface NickNameDLI {
 
     NickNameEntity storeNickName(NickNameEntity nickNameEntity);
 

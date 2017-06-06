@@ -1,7 +1,7 @@
 package de.thaso.mpt.be.domain.business.mapper;
 
 import de.thaso.mpt.be.domain.service.NickNameData;
-import de.thaso.mpt.db.store.NickNameEntity;
+import de.thaso.mpt.db.api.NickNameEntity;
 import org.mapstruct.Mapper;
 
 import java.util.List;

@@ -11,6 +11,7 @@
 
     <modules>
         <module>mpt-be-domain</module>
+        <module>mpt-be-ear</module>
         <!--<module>mpt-be-it</module>-->
     </modules>
 

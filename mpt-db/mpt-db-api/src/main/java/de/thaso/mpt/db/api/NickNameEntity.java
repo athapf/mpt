@@ -24,10 +24,10 @@ import java.util.Date;
  * @since 13.09.16
  */
 @Entity
-@Table(name = "V_NICK_NAME")
+@Table(name = "T_NICK_NAME")
 @NamedQueries({
-    @NamedQuery(name = NickNameEntity.FIND_BY_NAMES, query = "select nn from NickNameEntity nn where nn.name = :name order by nn.timestamp desc"),
-    @NamedQuery(name = NickNameEntity.FIND_BY_NICK_NAME, query = "select nn from NickNameEntity nn where nn.name = :name and nn.nick = :nick order by nn.timestamp desc")
+    @NamedQuery(name = NickNameEntity.FIND_BY_NAMES, query = "select nn from NickNameEntity nn where nn.name = :name order by nn.since desc"),
+    @NamedQuery(name = NickNameEntity.FIND_BY_NICK_NAME, query = "select nn from NickNameEntity nn where nn.name = :name and nn.nick = :nick order by nn.since desc")
 })
 public class NickNameEntity extends EntityBase {
 
@@ -43,9 +43,9 @@ public class NickNameEntity extends EntityBase {
     private Long id;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "TIMESTAMP")
+    @Column(name = "SINCE")
     @NotNull
-    private Date timestamp;
+    private Date since;
 
     @Column(name = "NAME")
     @Size(min=1, max=30)
@@ -56,6 +56,10 @@ public class NickNameEntity extends EntityBase {
     @Size(min=1, max=20)
     private String nick;
 
+    @Column(name = "PASSWORD")
+    @Size(min = 8, max = 16)
+    private String password;
+
     @Override
     public Long getId() {
         return id;
@@ -65,12 +69,12 @@ public class NickNameEntity extends EntityBase {
         this.id = id;
     }
 
-    public Date getTimestamp() {
-        return timestamp;
+    public Date getSince() {
+        return since;
     }
 
-    public void setTimestamp(Date timestamp) {
-        this.timestamp = timestamp;
+    public void setSince(final Date since) {
+        this.since = since;
     }
 
     public String getNick() {
@@ -87,5 +91,13 @@ public class NickNameEntity extends EntityBase {
 
     public void setName(final String name) {
         this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(final String password) {
+        this.password = password;
     }
 }

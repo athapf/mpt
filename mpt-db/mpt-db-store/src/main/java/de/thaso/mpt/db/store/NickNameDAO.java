@@ -1,6 +1,6 @@
 package de.thaso.mpt.db.store;
 
-import de.thaso.mpt.db.api.INickName;
+import de.thaso.mpt.db.api.NickNameDLI;
 import de.thaso.mpt.db.api.NickNameEntity;
 import de.thaso.mpt.db.common.DatabaseError;
 import de.thaso.mpt.db.common.DatabaseException;
@@ -21,8 +21,8 @@ import java.util.List;
  * @since 13.09.16
  */
 @Stateless
-@Local(INickName.class)
-public class NickNameDAO implements INickName {
+@Local(NickNameDLI.class)
+public class NickNameDAO implements NickNameDLI {
 
     private final static Logger LOG = LoggerFactory.getLogger(NickNameDAO.class);
 

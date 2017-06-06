@@ -3,11 +3,12 @@ package de.thaso.mpt.be.domain.business;
 import de.thaso.mpt.be.domain.business.mapper.NickNameMapper;
 import de.thaso.mpt.be.domain.service.NickNameData;
 import de.thaso.mpt.be.domain.service.NickNameService;
-import de.thaso.mpt.db.store.NickNameDAO;
-import de.thaso.mpt.db.store.NickNameEntity;
+import de.thaso.mpt.db.api.NickNameDLI;
+import de.thaso.mpt.db.api.NickNameEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.ejb.EJB;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -25,8 +26,8 @@ public class NickNameServiceImpl implements NickNameService {
 
     public static final Logger LOG = LoggerFactory.getLogger(NickNameServiceImpl.class);
 
-    @Inject
-    private NickNameDAO nickNameDAO;
+    @EJB
+    private NickNameDLI nickNameDAO;
 
     @Inject
     private NickNameMapper nickNameMapper;

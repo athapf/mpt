@@ -1,14 +1,15 @@
 package de.thaso.mpt.db.it;
 
+import de.thaso.mpt.db.api.NickNameEntity;
 import de.thaso.mpt.db.it.base.DbTestBase;
 import de.thaso.mpt.db.it.utils.SecondCauseMatcher;
 import de.thaso.mpt.db.store.NickNameDAO;
-import de.thaso.mpt.db.api.NickNameEntity;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.mockito.InjectMocks;
+import org.postgresql.util.PSQLException;
 
 import javax.persistence.Query;
 import javax.persistence.RollbackException;
@@ -22,7 +23,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.lessThan;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.fail;
 import static org.mockito.MockitoAnnotations.initMocks;
 
 /**
@@ -48,7 +48,7 @@ public class SimpleDatabaseIT extends DbTestBase {
     public void testStoreNote() throws SQLException {
         // given
         final NickNameEntity nickNameEntity = new NickNameEntity();
-        nickNameEntity.setTimestamp(new Date());
+        nickNameEntity.setSince(new Date());
         nickNameEntity.setName("test name");
         nickNameEntity.setNick("test nick");
         // when
@@ -65,17 +65,17 @@ public class SimpleDatabaseIT extends DbTestBase {
     @Test
     public void testPrimaryKeyViolation() throws SQLException {
         // given
-        Query nativeQuery = entityManager.createNativeQuery("INSERT INTO T_NICK_NAME (ID, TIMESTAMP, NAME, NICK) VALUES(74, '2014-02-15', 'foo', 'bar')");
+        Query nativeQuery = entityManager.createNativeQuery("INSERT INTO T_NICK_NAME (ID, SINCE, NAME, NICK) VALUES(74, '2014-02-15', 'foo', 'bar')");
         nativeQuery.executeUpdate();
 
         final NickNameEntity nickNameEntity = new NickNameEntity();
         nickNameEntity.setId(74L);
-        nickNameEntity.setTimestamp(new Date());
+        nickNameEntity.setSince(new Date());
         nickNameEntity.setName("developer");
         nickNameEntity.setNick("home");
 
         exception.expect(RollbackException.class);
-        exception.expectCause(new SecondCauseMatcher(SQLException.class, "PRIMARY_KEY", "Unique-Constraint"));
+        exception.expectCause(new SecondCauseMatcher(PSQLException.class, "duplicate key value violates unique constraint"));
         // when
         entityManager.persist(nickNameEntity);
     }
@@ -89,9 +89,9 @@ public class SimpleDatabaseIT extends DbTestBase {
         Long previousTimestamp = null;
         for (NickNameEntity nickNameEntity : result) {
             if(previousTimestamp != null) {
-                assertThat(nickNameEntity.getTimestamp().getTime(),is(lessThan(previousTimestamp)));
+                assertThat(nickNameEntity.getSince().getTime(),is(lessThan(previousTimestamp)));
             }
-            previousTimestamp = nickNameEntity.getTimestamp().getTime();
+            previousTimestamp = nickNameEntity.getSince().getTime();
         }
     }
 
@@ -107,9 +107,9 @@ public class SimpleDatabaseIT extends DbTestBase {
         Long previousTimestamp = null;
         for (NickNameEntity nickNameEntity : result) {
             if(previousTimestamp != null) {
-                assertThat(nickNameEntity.getTimestamp().getTime(),is(lessThan(previousTimestamp)));
+                assertThat(nickNameEntity.getSince().getTime(),is(lessThan(previousTimestamp)));
             }
-            previousTimestamp = nickNameEntity.getTimestamp().getTime();
+            previousTimestamp = nickNameEntity.getSince().getTime();
         }
     }
 }

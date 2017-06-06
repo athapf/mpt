@@ -5,7 +5,7 @@
     <persistence-unit name="testdb" transaction-type="RESOURCE_LOCAL">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
-        <class>de.thaso.mpt.db.store.NickNameEntity</class>
+        <class>de.thaso.mpt.db.api.NickNameEntity</class>
         <properties>
         </properties>
     </persistence-unit>
