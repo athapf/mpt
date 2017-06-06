@@ -9,11 +9,11 @@ import org.junit.Test;
  * @author thaler
  * @since 26.09.16
  */
-public class OverviewPageIT extends SeleniumTestBase {
+public class MainPageIT extends SeleniumTestBase {
 
     @Test
-    public void testOverviewPage() {
-        updateDatabase("testOverviewPage.xml");
+    public void testMainPage() {
+        updateDatabase("testMainPage.xml");
         getDriver().get(getAppUrl() + "/main.xhtml");
     }
 }

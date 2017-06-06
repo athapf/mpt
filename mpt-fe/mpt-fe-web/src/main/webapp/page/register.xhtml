@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <title>#{msg['mpt.page.register.head']}</title>
+</h:head>
+<h:body>
+    <h2>#{msg['mpt.page.register.title']}</h2>
+    <p><h:outputLabel value="#{msg['mpt.page.register.label.name']}"/>
+        <h:inputText value="#{registerModel.name}"/></p>
+    <p><h:outputLabel value="#{msg['mpt.page.register.label.password']}"/>
+        <h:inputText value="#{registerModel.password}"/></p>
+    <p><h:outputLabel value="#{msg['mpt.page.register.label.verify']}"/>
+        <h:inputText value="#{registerModel.verify}"/></p>
+    <p><h:commandButton value="#{msg['mpt.common.button.save']}"/>
+        <h:commandButton value="#{msg['mpt.common.button.cancel']}"/></p>
+</h:body>
+</html>

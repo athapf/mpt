@@ -1,4 +1,4 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dataset>
-    <T_NICK_NAME ID="1" TIMESTAMP="2016-09-08 09:17:37.835" NAME="it's me" NICK="TC"/>
+    <T_NICK_NAME ID="1" SINCE="2016-09-08 09:17:37.835" NAME="it's me" NICK="TC"/>
 </dataset>

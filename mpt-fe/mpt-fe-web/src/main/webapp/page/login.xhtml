@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <title>#{msg['mpt.page.login.head']}</title>
+</h:head>
+<h:body>
+    <h2>#{msg['mpt.page.login.title']}</h2>
+    <p><h:outputLabel value="#{msg['mpt.page.login.label.name']}"/>
+        <h:inputText value="#{loginModel.name}"/></p>
+    <p><h:outputLabel value="#{msg['mpt.page.login.label.password']}"/>
+        <h:inputText value="#{loginModel.password}"/></p>
+    <p><h:commandButton value="#{msg['mpt.page.login.button.login']}"/></p>
+    <p><h:commandLink value="#{msg['mpt.page.login.link.register']}"/></p>
+</h:body>
+</html>

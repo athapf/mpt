@@ -1,17 +1,17 @@
-package de.thaso.mpt.fe.bean.model;
+package de.thaso.mpt.fe.bean.main;
 
 import javax.enterprise.inject.Any;
 import java.io.Serializable;
 import java.util.List;
 
 /**
- * OverviewModel
+ * MainModel
  *
  * @author thaler
  * @since 27.09.16
  */
 @Any
-public class OverviewModel implements Serializable {
+public class MainModel implements Serializable {
 
     private String simpleMessage;
 

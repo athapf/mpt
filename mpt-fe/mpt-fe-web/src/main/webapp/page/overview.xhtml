@@ -4,10 +4,12 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
-    <title>#{msg['mpt.page.main.head']}</title>
+    <title>#{msg['mpt.page.overview.head']}</title>
 </h:head>
 <h:body>
-    <h1>#{msg['mpt.page.main.title']}</h1>
-    <p>Message: #{mainModel.simpleMessage}</p>
+    <h1>#{msg['mpt.page.overview.title']}</h1>
+    <p>#{msg['mpt.page.overview.hello']} #{overviewModel.name}</p>
+    <p>#{msg['mpt.page.overview.loggedin']}</p>
+    <p><h:commandLink value="#{msg['mpt.page.overview.link.changePassword']}"/></p>
 </h:body>
 </html>

@@ -31,7 +31,7 @@
     </dependencies>
 
     <build>
-        <finalName>${env.PRJ_SHORT}</finalName>
+        <finalName>${env.PRJ_SIGN}</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>
@@ -65,7 +65,7 @@
                 <version>2.1</version>
                 <configuration>
                     <user>admin</user>
-                    <adminPassword>adminadmin</adminPassword>
+                    <adminPassword>admin</adminPassword>
                     <glassfishDirectory>${glassfish.home}/glassfish</glassfishDirectory>
                     <components>
                         <component>
@@ -75,9 +75,9 @@
                     </components>
                     <domain>
                         <name>domain1</name>
-                        <adminPort>9848</adminPort>
-                        <httpPort>9080</httpPort>
-                        <httpsPort>9443</httpsPort>
+                        <adminPort>4848</adminPort>
+                        <httpPort>8086</httpPort>
+                        <httpsPort>8443</httpsPort>
                     </domain>
                 </configuration>
             </plugin>
