@@ -1,10 +1,14 @@
 package de.thaso.mpt.db.store;
 
+import de.thaso.mpt.db.api.INickName;
+import de.thaso.mpt.db.api.NickNameEntity;
 import de.thaso.mpt.db.common.DatabaseError;
 import de.thaso.mpt.db.common.DatabaseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.ejb.Local;
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -16,7 +20,9 @@ import java.util.List;
  * @author thaler
  * @since 13.09.16
  */
-public class NickNameDAO {
+@Stateless
+@Local(INickName.class)
+public class NickNameDAO implements INickName {
 
     private final static Logger LOG = LoggerFactory.getLogger(NickNameDAO.class);
 

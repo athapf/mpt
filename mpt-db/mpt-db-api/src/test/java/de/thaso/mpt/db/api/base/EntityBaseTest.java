@@ -1,6 +1,5 @@
-package de.thaso.mpt.db.store.base;
+package de.thaso.mpt.db.api.base;
 
-import de.thaso.mpt.db.api.base.EntityBase;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;

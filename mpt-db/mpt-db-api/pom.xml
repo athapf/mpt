@@ -13,30 +13,20 @@
     <packaging>jar</packaging>
 
     <groupId>mpt.db</groupId>
-    <artifactId>mpt-db-it</artifactId>
+    <artifactId>mpt-db-api</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <name>mpt-db-it</name>
+    <name>mpt-db-api</name>
 
     <dependencies>
         <dependency>
             <groupId>mpt.db</groupId>
-            <artifactId>mpt-db-api</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>mpt.db</groupId>
-            <artifactId>mpt-db-store</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>mpt.db</groupId>
-            <artifactId>mpt-db-schema</artifactId>
+            <artifactId>mpt-db-common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
 <!--
-         <dependency>
+        <dependency>
             <groupId>org.apache.openjpa</groupId>
             <artifactId>openjpa</artifactId>
             <version>2.2.1</version>
@@ -46,17 +36,28 @@
             <groupId>org.eclipse.persistence</groupId>
             <artifactId>eclipselink</artifactId>
             <version>2.5.0</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>${postgres.version}</version>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>eclipselink</artifactId>
+            <version>2.5.0</version>
+            <scope>test</scope>
         </dependency>
+        <!--
+        <dependency>
+            <groupId>postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.1-901.jdbc4</version>
+            <scope>test</scope>
+        </dependency>
+        -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <version>1.4.192</version>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>

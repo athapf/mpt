@@ -1,5 +1,7 @@
 package de.thaso.mpt.db.store;
 
+import de.thaso.mpt.db.api.INickName;
+import de.thaso.mpt.db.api.NickNameEntity;
 import de.thaso.mpt.db.store.utils.DatabaseExceptionCodeMatcher;
 import de.thaso.mpt.db.common.DatabaseError;
 import de.thaso.mpt.db.common.DatabaseException;
@@ -36,7 +38,7 @@ public class NickNameDAOTest {
             = new DatabaseExceptionCodeMatcher(DatabaseError.ENTITY_NOT_FOUND);
 
     @InjectMocks
-    private NickNameDAO underTest;
+    private INickName underTest;
 
     @Mock
     private EntityManager entityManager;

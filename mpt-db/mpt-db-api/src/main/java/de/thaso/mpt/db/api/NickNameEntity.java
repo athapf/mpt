@@ -1,6 +1,6 @@
-package de.thaso.mpt.db.store;
+package de.thaso.mpt.db.api;
 
-import de.thaso.mpt.db.store.base.EntityBase;
+import de.thaso.mpt.db.api.base.EntityBase;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -24,7 +24,7 @@ import java.util.Date;
  * @since 13.09.16
  */
 @Entity
-@Table(name = "T_NICK_NAME")
+@Table(name = "V_NICK_NAME")
 @NamedQueries({
     @NamedQuery(name = NickNameEntity.FIND_BY_NAMES, query = "select nn from NickNameEntity nn where nn.name = :name order by nn.timestamp desc"),
     @NamedQuery(name = NickNameEntity.FIND_BY_NICK_NAME, query = "select nn from NickNameEntity nn where nn.name = :name and nn.nick = :nick order by nn.timestamp desc")

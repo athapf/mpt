@@ -1,4 +1,4 @@
-package de.thaso.mpt.db.store.base;
+package de.thaso.mpt.db.api.base;
 
 import java.io.Serializable;
 
