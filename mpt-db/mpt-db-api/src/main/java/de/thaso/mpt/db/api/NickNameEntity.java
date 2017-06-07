@@ -27,14 +27,14 @@ import java.util.Date;
 @Table(name = "T_NICK_NAME")
 @NamedQueries({
     @NamedQuery(name = NickNameEntity.FIND_BY_NAMES, query = "select nn from NickNameEntity nn where nn.name = :name order by nn.since desc"),
-    @NamedQuery(name = NickNameEntity.FIND_BY_NICK_NAME, query = "select nn from NickNameEntity nn where nn.name = :name and nn.nick = :nick order by nn.since desc")
+    @NamedQuery(name = NickNameEntity.FIND_BY_NICK, query = "select nn from NickNameEntity nn where nn.nick = :nick")
 })
 public class NickNameEntity extends EntityBase {
 
     private static final long serialVersionUID = -4319045348350461073L;
 
     public static final String FIND_BY_NAMES = "FIND_BY_NAMES";
-    public static final String FIND_BY_NICK_NAME = "FIND_BY_NICK_NAMES";
+    public static final String FIND_BY_NICK = "FIND_BY_NICK";
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "NickNameSequence")

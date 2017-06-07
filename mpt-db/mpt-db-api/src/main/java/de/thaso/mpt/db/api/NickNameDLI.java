@@ -20,5 +20,5 @@ public interface NickNameDLI {
 
     List<NickNameEntity> findByName(String name);
 
-    List<NickNameEntity> findByNickName(String name, String nick);
+    NickNameEntity findByNick(String nick);
 }

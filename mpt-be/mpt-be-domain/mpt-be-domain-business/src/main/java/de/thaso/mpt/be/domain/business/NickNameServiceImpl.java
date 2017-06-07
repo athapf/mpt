@@ -48,9 +48,9 @@ public class NickNameServiceImpl implements NickNameService {
     }
 
     @Override
-    public List<NickNameData> findByNickName(final String name, final String nick) {
-        LOG.debug("findByNickName( {}, {} )", name, nick);
-        final List<NickNameEntity> nameEntityList = nickNameDAO.findByNickName(name, nick);
-        return nickNameMapper.nickNameListToDOList(nameEntityList);
+    public NickNameData findByNick(final String nick) {
+        LOG.debug("findByNick( {} )", nick);
+        final NickNameEntity nameEntityList = nickNameDAO.findByNick(nick);
+        return nickNameMapper.nickNameToDO(nameEntityList);
     }
 }

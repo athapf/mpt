@@ -19,5 +19,10 @@
   <name>mpt-fe-bean</name>
 
   <dependencies>
+    <dependency>
+      <groupId>mpt.be.domain</groupId>
+      <artifactId>mpt-be-domain-service</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
   </dependencies>
 </project>

@@ -38,7 +38,7 @@ public class NickNameDAOTest {
             = new DatabaseExceptionCodeMatcher(DatabaseError.ENTITY_NOT_FOUND);
 
     @InjectMocks
-    private NickNameDLI underTest;
+    private NickNameDLI underTest = new NickNameDAO();
 
     @Mock
     private EntityManager entityManager;
@@ -123,14 +123,13 @@ public class NickNameDAOTest {
     public void findByNickName() {
         // given
         final TypedQuery query = mock(TypedQuery.class);
-        when(entityManager.createNamedQuery(NickNameEntity.FIND_BY_NICK_NAME,NickNameEntity.class)).thenReturn(query);
-        final List<NickNameEntity> messageEntityList = new ArrayList<>();
-        when(query.getResultList()).thenReturn(messageEntityList);
+        when(entityManager.createNamedQuery(NickNameEntity.FIND_BY_NICK,NickNameEntity.class)).thenReturn(query);
+        final NickNameEntity nickNameEntity = new NickNameEntity();
+        when(query.getSingleResult()).thenReturn(nickNameEntity);
         // when
-        final List<NickNameEntity> result = underTest.findByNickName("Hugo", "Big H");
+        final NickNameEntity result = underTest.findByNick("Big H");
         // then
-        assertThat(result,is(messageEntityList));
-        verify(query).setParameter("name","Hugo");
+        assertThat(result, is(nickNameEntity));
         verify(query).setParameter("nick","Big H");
     }
 }

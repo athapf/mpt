@@ -22,6 +22,7 @@ import java.util.List;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.lessThan;
+import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.core.Is.is;
 import static org.mockito.MockitoAnnotations.initMocks;
 
@@ -96,20 +97,13 @@ public class SimpleDatabaseIT extends DbTestBase {
     }
 
     @Test
-    public void testFindByNickName() throws SQLException, ParseException {
+    public void testFindByNick() throws SQLException, ParseException {
         // given
-        final String name = "my name A";
         final String nick = "test B";
         // when
-        final List<NickNameEntity> result = underTest.findByNickName(name, nick);
+        final NickNameEntity result = underTest.findByNick(nick);
         // then
-        assertThat(result.size(), is(5));
-        Long previousTimestamp = null;
-        for (NickNameEntity nickNameEntity : result) {
-            if(previousTimestamp != null) {
-                assertThat(nickNameEntity.getSince().getTime(),is(lessThan(previousTimestamp)));
-            }
-            previousTimestamp = nickNameEntity.getSince().getTime();
-        }
+        assertThat(result, is(notNullValue()));
+        assertThat(result.getName(), is("my name A"));
     }
 }

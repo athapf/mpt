@@ -14,5 +14,5 @@ public interface NickNameService {
 
     List<NickNameData> findByName(String name);
 
-    List<NickNameData> findByNickName(String name, String nick);
+    NickNameData findByNick(String nick);
 }

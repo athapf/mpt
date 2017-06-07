@@ -14,9 +14,10 @@ public class NickNameData implements Serializable {
     private static final long serialVersionUID = -7049489388682590929L;
 
     private Long id;
-    private Date timestamp;
+    private Date since;
     private String name;
     private String nick;
+    private String password;
 
     public Long getId() {
         return id;
@@ -26,12 +27,12 @@ public class NickNameData implements Serializable {
         this.id = id;
     }
 
-    public Date getTimestamp() {
-        return timestamp;
+    public Date getSince() {
+        return since;
     }
 
-    public void setTimestamp(final Date timestamp) {
-        this.timestamp = timestamp;
+    public void setSince(final Date since) {
+        this.since = since;
     }
 
     public String getName() {
@@ -48,5 +49,13 @@ public class NickNameData implements Serializable {
 
     public void setNick(final String nick) {
         this.nick = nick;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(final String password) {
+        this.password = password;
     }
 }

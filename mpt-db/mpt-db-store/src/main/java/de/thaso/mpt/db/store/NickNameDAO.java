@@ -4,6 +4,7 @@ import de.thaso.mpt.db.api.NickNameDLI;
 import de.thaso.mpt.db.api.NickNameEntity;
 import de.thaso.mpt.db.common.DatabaseError;
 import de.thaso.mpt.db.common.DatabaseException;
+import de.thaso.mpt.db.store.base.AbstractDAO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,7 +23,7 @@ import java.util.List;
  */
 @Stateless
 @Local(NickNameDLI.class)
-public class NickNameDAO implements NickNameDLI {
+public class NickNameDAO extends AbstractDAO<NickNameEntity> implements NickNameDLI {
 
     private final static Logger LOG = LoggerFactory.getLogger(NickNameDAO.class);
 
@@ -63,13 +64,12 @@ public class NickNameDAO implements NickNameDLI {
         return query.getResultList();
     }
 
-    public List<NickNameEntity> findByNickName(final String name, final String nick) {
-        LOG.info("findByNickName( {}, {} )", name, nick);
+    public NickNameEntity findByNick(final String nick) {
+        LOG.info("findByNick( {} )", nick);
 
         final TypedQuery<NickNameEntity> query
-                = entityManager.createNamedQuery(NickNameEntity.FIND_BY_NICK_NAME, NickNameEntity.class);
-        query.setParameter("name", name);
+                = entityManager.createNamedQuery(NickNameEntity.FIND_BY_NICK, NickNameEntity.class);
         query.setParameter("nick", nick);
-        return query.getResultList();
+        return singleResultOrNull(query.getResultList());
     }
 }

@@ -5,6 +5,7 @@
     <persistence-unit name="mptdb" transaction-type="JTA">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <jta-data-source>jdbc/mptdb</jta-data-source>
+        <class>de.thaso.mpt.db.api.NickNameEntity</class>
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
         <properties>
             <property name="eclipselink.target-database" value="Database" />

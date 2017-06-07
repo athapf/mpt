@@ -9,5 +9,6 @@ package de.thaso.mpt.db.common;
 public enum DatabaseError {
     COMMON_DATABASE,
     DATABASE_CONNECTION,
-    ENTITY_NOT_FOUND
+    ENTITY_NOT_FOUND,
+    NON_UNIQUE_RESULT
 }
