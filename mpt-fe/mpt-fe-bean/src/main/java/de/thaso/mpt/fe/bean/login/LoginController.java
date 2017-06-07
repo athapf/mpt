@@ -17,4 +17,14 @@ import javax.inject.Named;
 public class LoginController {
 
     private static final Logger LOG = LoggerFactory.getLogger(LoginController.class);
+
+    public String login() {
+        LOG.info("login");
+        return "overview";
+    }
+
+    public String register() {
+        LOG.info("register");
+        return "register.xhtml";
+    }
 }

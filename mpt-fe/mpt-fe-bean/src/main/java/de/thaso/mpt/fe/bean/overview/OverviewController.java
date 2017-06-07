@@ -17,4 +17,9 @@ import javax.inject.Named;
 public class OverviewController {
 
     private static final Logger LOG = LoggerFactory.getLogger(OverviewController.class);
+
+    public String changePassword() {
+        LOG.info("changePassword");
+        return "register";
+    }
 }

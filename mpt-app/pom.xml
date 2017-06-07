@@ -13,5 +13,6 @@
         <module>../mpt-db</module>
         <module>../mpt-be</module>
         <module>../mpt-fe</module>
+        <module>mpt-app-ear</module>
     </modules>
 </project>

@@ -17,4 +17,14 @@ import javax.inject.Named;
 public class RegisterController {
 
     private static final Logger LOG = LoggerFactory.getLogger(RegisterController.class);
+
+    public String save() {
+        LOG.info("login");
+        return "login";
+    }
+
+    public String cancel() {
+        LOG.info("cancel");
+        return "login";
+    }
 }

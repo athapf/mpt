@@ -4,12 +4,16 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
+    <meta http-equiv="Pragma" content="no-cache"/>
     <title>#{msg['mpt.page.overview.head']}</title>
 </h:head>
 <h:body>
-    <h1>#{msg['mpt.page.overview.title']}</h1>
-    <p>#{msg['mpt.page.overview.hello']} #{overviewModel.name}</p>
-    <p>#{msg['mpt.page.overview.loggedin']}</p>
-    <p><h:commandLink value="#{msg['mpt.page.overview.link.changePassword']}"/></p>
+    <h:form>
+        <h1>#{msg['mpt.page.overview.title']}</h1>
+        <p>#{msg['mpt.page.overview.hello']} #{overviewModel.name}</p>
+        <p>#{msg['mpt.page.overview.loggedin']}</p>
+        <p><h:commandLink value="#{msg['mpt.page.overview.link.changePassword']}"
+                          action="#{overviewController.changePassword}"/></p>
+    </h:form>
 </h:body>
 </html>
