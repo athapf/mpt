@@ -36,11 +36,11 @@ public class LoginController {
     public String login() {
         LOG.info("login");
 
-        final NickNameData nickNameData = nickNameService.findByNick(loginModel.getName());
-        if (nickNameData != null
-                && (StringUtils.isBlank(nickNameData.getPassword())
-                || StringUtils.equals(nickNameData.getPassword(), loginModel.getPassword()))) {
-            contextInfo.setUser(nickNameData);
+        final NickNameData nickNameData = nickNameService.login(loginModel.getName(), loginModel.getPassword());
+
+        contextInfo.setUser(nickNameData);
+        
+        if (contextInfo.getUser() != null) {
             return "overview";
         }
 

@@ -10,9 +10,18 @@ import java.util.List;
  */
 public interface NickNameService {
 
+    NickNameData login(String name, String passwd);
+
+    void register(NickNameData nickNameData);
+
+    void update(NickNameData nickNameData);
+
+    @Deprecated
     void storeNickName(NickNameData nickNameData);
 
+    @Deprecated
     List<NickNameData> findByName(String name);
 
+    @Deprecated
     NickNameData findByNick(String nick);
 }
