@@ -3,6 +3,8 @@ package de.thaso.mpt.fe.bean.login;
 import de.thaso.mpt.be.domain.service.NickNameData;
 import de.thaso.mpt.be.domain.service.NickNameService;
 import de.thaso.mpt.fe.bean.common.ContextInfo;
+import de.thaso.mpt.fe.bean.navigation.MaskEnum;
+import de.thaso.mpt.fe.bean.navigation.TargetBuilder;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,20 +38,25 @@ public class LoginController {
     public String login() {
         LOG.info("login");
 
-        final NickNameData nickNameData = nickNameService.login(loginModel.getName(), loginModel.getPassword());
+        try {
+            final NickNameData nickNameData = nickNameService.login(loginModel.getName(), loginModel.getPassword());
 
-        contextInfo.setUser(nickNameData);
+            contextInfo.setUser(nickNameData);
         
-        if (contextInfo.getUser() != null) {
-            return "overview";
+            if (contextInfo.getUser() != null) {
+                return TargetBuilder.create(MaskEnum.OVERVIEW).withRedirect().build();
+            }
+        } catch (Exception ex) {
+            LOG.error("Falsches Passwort!", ex);
         }
 
         loginModel.setPassword(StringUtils.EMPTY);
-        return "login";
+        return null;
     }
 
     public String register() {
         LOG.info("register");
-        return "register.xhtml";
+        String loginUrl = TargetBuilder.create(MaskEnum.LOGIN).withRedirect().build();
+        return TargetBuilder.create(MaskEnum.REGISTER).pushUrl(loginUrl).withRedirect().build();
     }
 }

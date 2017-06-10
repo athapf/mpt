@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <modules>
+        <!--<module>mpt-be-maskflow</module>-->
         <module>mpt-be-domain</module>
         <module>mpt-be-ear</module>
         <!--<module>mpt-be-it</module>-->

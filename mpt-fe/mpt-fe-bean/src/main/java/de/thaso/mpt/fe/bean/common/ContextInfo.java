@@ -17,6 +17,7 @@ public class ContextInfo implements Serializable {
     private static final long serialVersionUID = 4442432023153746905L;
 
     private NickNameData user;
+    private String backUrl;
 
     public NickNameData getUser() {
         return user;
@@ -24,5 +25,13 @@ public class ContextInfo implements Serializable {
 
     public void setUser(final NickNameData user) {
         this.user = user;
+    }
+
+    public String getBackUrl() {
+        return backUrl;
+    }
+
+    public void setBackUrl(final String backUrl) {
+        this.backUrl = backUrl;
     }
 }
