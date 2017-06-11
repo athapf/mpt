@@ -66,7 +66,7 @@ public class TargetBuilder {
         } else {
             builder.append(page.value());
         }
-        if (redirect) {
+        if (redirect && StringUtils.contains(builder.toString(),"?faces-redirect=true")) {
             builder.append("?faces-redirect=true");
         }
         final String url = builder.toString();

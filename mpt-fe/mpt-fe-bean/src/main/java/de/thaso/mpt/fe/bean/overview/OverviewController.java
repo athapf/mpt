@@ -1,5 +1,7 @@
 package de.thaso.mpt.fe.bean.overview;
 
+import de.thaso.mpt.fe.bean.navigation.MaskEnum;
+import de.thaso.mpt.fe.bean.navigation.TargetBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,6 +22,6 @@ public class OverviewController {
 
     public String changePassword() {
         LOG.info("changePassword");
-        return "register";
+        return TargetBuilder.create(MaskEnum.REGISTER).pushActualUrl().withRedirect().build();
     }
 }

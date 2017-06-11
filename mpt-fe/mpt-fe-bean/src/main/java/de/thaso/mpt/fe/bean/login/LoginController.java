@@ -3,6 +3,7 @@ package de.thaso.mpt.fe.bean.login;
 import de.thaso.mpt.be.domain.service.NickNameData;
 import de.thaso.mpt.be.domain.service.NickNameService;
 import de.thaso.mpt.fe.bean.common.ContextInfo;
+import de.thaso.mpt.fe.bean.message.MessageModel;
 import de.thaso.mpt.fe.bean.navigation.MaskEnum;
 import de.thaso.mpt.fe.bean.navigation.TargetBuilder;
 import org.apache.commons.lang3.StringUtils;
@@ -34,7 +35,10 @@ public class LoginController {
 
     @Inject
     private ContextInfo contextInfo;
-    
+
+    @Inject
+    private MessageModel messageModel;
+
     public String login() {
         LOG.info("login");
 
@@ -46,7 +50,8 @@ public class LoginController {
             if (contextInfo.getUser() != null) {
                 return TargetBuilder.create(MaskEnum.OVERVIEW).withRedirect().build();
             }
-        } catch (Exception ex) {
+        } catch (RuntimeException ex) {
+            messageModel.setText("Falsches Passwort");
             LOG.error("Falsches Passwort!", ex);
         }
 

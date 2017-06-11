@@ -28,11 +28,11 @@ public class RegisterController {
 
     public String save() {
         LOG.info("login");
-        return "login";
+        return TargetBuilder.create(MaskEnum.LOGIN).withRedirect().build();
     }
 
     public String cancel() {
         LOG.info("cancel");
-        return TargetBuilder.create(MaskEnum.BACK).build();
+        return TargetBuilder.create(MaskEnum.BACK).withRedirect().build();
     }
 }
