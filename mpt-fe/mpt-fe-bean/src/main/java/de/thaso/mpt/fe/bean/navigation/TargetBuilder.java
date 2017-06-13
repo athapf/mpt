@@ -19,7 +19,8 @@ public class TargetBuilder {
 
     public static final String BACK = "*BACK*";
 
-    private static final String BACKURLSTACK = "backurlstack";
+    private static final String BACKURLSTACK = "back-url-stack";
+    private static final String FACES_REDIRECT = "?faces-redirect=true";
 
     private MaskEnum page;
     private boolean redirect = false;
@@ -66,8 +67,8 @@ public class TargetBuilder {
         } else {
             builder.append(page.value());
         }
-        if (redirect && StringUtils.contains(builder.toString(),"?faces-redirect=true")) {
-            builder.append("?faces-redirect=true");
+        if (redirect && !StringUtils.contains(builder.toString(), FACES_REDIRECT)) {
+            builder.append(FACES_REDIRECT);
         }
         final String url = builder.toString();
         if (pushBackUrl) {

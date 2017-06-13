@@ -10,7 +10,7 @@ import java.util.List;
  * @author thaler
  * @since 13.09.16
  */
-public interface NickNameDLI {
+public interface NickNameDS {
 
     NickNameEntity storeNickName(NickNameEntity nickNameEntity);
 
@@ -18,7 +18,7 @@ public interface NickNameDLI {
 
     NickNameEntity findNickNameById(Long id);
 
-    NickNameEntity loadNickNameById(Long id) throws DatabaseException;
+    NickNameEntity loadNickNameById(Long id);
 
     List<NickNameEntity> findByName(String name);
 

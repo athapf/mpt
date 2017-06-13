@@ -2,7 +2,6 @@ package de.thaso.mpt.fe.bean.register;
 
 import de.thaso.mpt.be.domain.service.NickNameData;
 import de.thaso.mpt.be.domain.service.NickNameService;
-import de.thaso.mpt.db.api.NickNameDLI;
 import de.thaso.mpt.fe.bean.common.ContextInfo;
 import de.thaso.mpt.fe.bean.message.MessageModel;
 import de.thaso.mpt.fe.bean.navigation.MaskEnum;
@@ -13,7 +12,6 @@ import org.slf4j.LoggerFactory;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
-import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 

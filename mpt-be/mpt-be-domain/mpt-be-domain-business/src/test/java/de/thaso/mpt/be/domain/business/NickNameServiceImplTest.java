@@ -2,7 +2,7 @@ package de.thaso.mpt.be.domain.business;
 
 import de.thaso.mpt.be.domain.business.mapper.NickNameMapper;
 import de.thaso.mpt.be.domain.service.NickNameData;
-import de.thaso.mpt.db.api.NickNameDLI;
+import de.thaso.mpt.db.api.NickNameDS;
 import de.thaso.mpt.db.api.NickNameEntity;
 import org.junit.Before;
 import org.junit.Test;
@@ -30,7 +30,7 @@ public class NickNameServiceImplTest {
     private NickNameServiceImpl underTest;
 
     @Mock
-    private NickNameDLI nickNameDAO;
+    private NickNameDS nickNameDAO;
 
     @Mock
     private NickNameMapper nickNameMapper;
