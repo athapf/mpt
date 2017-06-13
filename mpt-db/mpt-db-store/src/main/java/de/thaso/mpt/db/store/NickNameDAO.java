@@ -37,6 +37,12 @@ public class NickNameDAO extends AbstractDAO<NickNameEntity> implements NickName
         return nickNameEntity;
     }
 
+    public NickNameEntity updateNickName(final NickNameEntity nickNameEntity) {
+        LOG.info("updateNickName with id {} in name {}", nickNameEntity.getId(), nickNameEntity.getName());
+
+        return entityManager.merge(nickNameEntity);
+    }
+
     public NickNameEntity findNickNameById(final Long id) {
         LOG.info("findNickNameById {}", id);
 

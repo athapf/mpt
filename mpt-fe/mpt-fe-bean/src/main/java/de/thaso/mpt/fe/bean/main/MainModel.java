@@ -13,6 +13,8 @@ import java.util.List;
 @Any
 public class MainModel implements Serializable {
 
+    private static final long serialVersionUID = -2443249629199409358L;
+
     private String simpleMessage;
 
     public String getSimpleMessage() {

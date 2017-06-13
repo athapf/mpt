@@ -9,17 +9,26 @@
     <ui:composition template="/WEB-INF/template/main.xhtml">
         <ui:define name="contentSection">
             <f:view>
-                <h:form>
+                <h:form id="form">
                     <h2>#{msg['mpt.page.register.title']}</h2>
                     <p><h:outputLabel value="#{msg['mpt.page.register.label.name']}"/>
-                        <h:inputText value="#{registerModel.name}"/></p>
+                        <h:inputText id="nameInput" styleClass="nameInput"
+                                     value="#{registerModel.name}"/></p>
+                    <p><h:outputLabel value="#{msg['mpt.page.register.label.nick']}"/>
+                        <h:inputText id="nickInput" styleClass="nickInput"
+                                     readonly="#{registerModel.updateOnly}"
+                                     value="#{registerModel.nick}"/></p>
                     <p><h:outputLabel value="#{msg['mpt.page.register.label.password']}"/>
-                        <h:inputText value="#{registerModel.password}"/></p>
+                        <h:inputText id="passwordInput" styleClass="passwordInput"
+                                     value="#{registerModel.password}"/></p>
                     <p><h:outputLabel value="#{msg['mpt.page.register.label.verify']}"/>
-                        <h:inputText value="#{registerModel.verify}"/></p>
-                    <p><h:commandButton value="#{msg['mpt.common.button.save']}" type="submit"
+                        <h:inputText id="verifyInput" styleClass="verifyInput"
+                                     value="#{registerModel.verify}"/></p>
+                    <p><h:commandButton id="saveButton" styleClass="saveButton"
+                                        value="#{msg['mpt.common.button.save']}" type="submit"
                                         action="#{registerController.save}"/>
-                        <h:commandButton value="#{msg['mpt.common.button.cancel']}" type="submit"
+                        <h:commandButton id="cancelButton" styleClass="cancelButton"
+                                         value="#{msg['mpt.common.button.cancel']}" type="submit"
                                          action="#{registerController.cancel}"/></p>
                 </h:form>
             </f:view>

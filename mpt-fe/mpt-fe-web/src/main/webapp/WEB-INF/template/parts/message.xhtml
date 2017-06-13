@@ -8,7 +8,8 @@
       xmlns:f="http://java.sun.com/jsf/core">
 <ui:composition>
     <c:if test="#{not empty messageModel.text}">
-        <h:outputLabel value="#{messageModel.text}"/>
+        <h:outputLabel id="message" styleClass="message"
+                       value="#{messageModel.text}"/>
     </c:if>
 </ui:composition>>
 </html>

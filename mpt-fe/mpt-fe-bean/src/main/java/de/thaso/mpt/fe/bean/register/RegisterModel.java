@@ -12,9 +12,13 @@ import java.io.Serializable;
 @Any
 public class RegisterModel implements Serializable {
 
+    private static final long serialVersionUID = 3593308552689530699L;
+
     private String name;
+    private String nick;
     private String password;
     private String verify;
+    private boolean updateOnly = false;
 
     public String getName() {
         return name;
@@ -22,6 +26,14 @@ public class RegisterModel implements Serializable {
 
     public void setName(final String name) {
         this.name = name;
+    }
+
+    public String getNick() {
+        return nick;
+    }
+
+    public void setNick(final String nick) {
+        this.nick = nick;
     }
 
     public String getPassword() {
@@ -38,5 +50,13 @@ public class RegisterModel implements Serializable {
 
     public void setVerify(final String verify) {
         this.verify = verify;
+    }
+
+    public boolean isUpdateOnly() {
+        return updateOnly;
+    }
+
+    public void setUpdateOnly(final boolean updateOnly) {
+        this.updateOnly = updateOnly;
     }
 }

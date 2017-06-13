@@ -9,11 +9,14 @@
     <ui:composition template="/WEB-INF/template/main.xhtml">
         <ui:define name="contentSection">
             <f:view>
-                <h:form>
+                <h:form id="form">
                     <h1>#{msg['mpt.page.overview.title']}</h1>
-                    <p>#{msg['mpt.page.overview.hello']} #{overviewModel.name}</p>
+                    <p>#{msg['mpt.page.overview.hello']}
+                        <h:outputText id="nameText" styleClass="nameText"
+                                      value="#{overviewModel.name}"/></p>
                     <p>#{msg['mpt.page.overview.loggedin']}</p>
-                    <p><h:commandLink value="#{msg['mpt.page.overview.link.changePassword']}"
+                    <p><h:commandLink id="profilButton" styleClass="profilButton"
+                                      value="#{msg['mpt.page.overview.link.changePassword']}"
                                       action="#{overviewController.changePassword}"/></p>
                 </h:form>
             </f:view>

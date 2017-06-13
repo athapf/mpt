@@ -13,6 +13,7 @@ import javax.ejb.EJB;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -37,18 +38,23 @@ public class NickNameServiceImpl implements NickNameService {
     public NickNameData login(final String name, final String passwd) {
         final NickNameEntity nickNameEntity = nickNameDLI.findByNick(name);
 
-        if (nickNameEntity == null
-                || !(StringUtils.isBlank(nickNameEntity.getPassword())
-                || StringUtils.equals(nickNameEntity.getPassword(), passwd))) {
+        if (!isPasswordValid(passwd, nickNameEntity)) {
             throw new RuntimeException("User or Password not valid!");
         }
         return nickNameMapper.nickNameToDO(nickNameEntity);
+    }
+
+    boolean isPasswordValid(final String passwd, final NickNameEntity nickNameEntity) {
+        return nickNameEntity != null
+                && ((StringUtils.isBlank(nickNameEntity.getPassword()) && StringUtils.isBlank(passwd))
+                || StringUtils.equals(nickNameEntity.getPassword(), passwd));
     }
 
     @Override
     public void register(final NickNameData nickNameData) {
         final NickNameEntity nickNameEntity = nickNameMapper.nickNameToEntity(nickNameData);
         nickNameEntity.setId(null);
+        nickNameEntity.setSince(new Date());
         
         nickNameDLI.storeNickName(nickNameEntity);
     }
@@ -60,7 +66,7 @@ public class NickNameServiceImpl implements NickNameService {
         final NickNameEntity nickNameEntity = nickNameMapper.nickNameToEntity(nickNameData);
         nickNameEntity.setSince(originalNickName.getSince());
         
-        nickNameDLI.storeNickName(nickNameEntity);
+        nickNameDLI.updateNickName(nickNameEntity);
     }
 
     @Override

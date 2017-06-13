@@ -14,6 +14,8 @@ public interface NickNameDLI {
 
     NickNameEntity storeNickName(NickNameEntity nickNameEntity);
 
+    NickNameEntity updateNickName(NickNameEntity nickNameEntity);
+
     NickNameEntity findNickNameById(Long id);
 
     NickNameEntity loadNickNameById(Long id) throws DatabaseException;

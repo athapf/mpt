@@ -12,6 +12,8 @@ import java.io.Serializable;
 @Any
 public class OverviewModel implements Serializable {
 
+    private static final long serialVersionUID = -3371565388447341637L;
+
     private String name;
 
     public String getName() {
