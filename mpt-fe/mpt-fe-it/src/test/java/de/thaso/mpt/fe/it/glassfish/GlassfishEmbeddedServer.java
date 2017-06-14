@@ -60,7 +60,7 @@ public class GlassfishEmbeddedServer implements ApplicationServerBase {
     }
 
     private void deployApp() throws GlassFishException {
-        File war = new File("./target/war");
+        File war = new File("./target/ear");
         Deployer deployer = glassfish.getDeployer();
         deployer.deploy(war, "--contextroot=" + properties.getProperty("app.server.contextroot"), "--force=true");
     }

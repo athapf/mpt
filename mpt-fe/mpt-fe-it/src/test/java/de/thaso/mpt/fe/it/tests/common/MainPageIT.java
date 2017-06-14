@@ -1,6 +1,7 @@
-package de.thaso.mpt.fe.it.common;
+package de.thaso.mpt.fe.it.tests.common;
 
 import de.thaso.mpt.fe.it.base.SeleniumTestBase;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
