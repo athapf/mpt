@@ -46,14 +46,9 @@ public abstract class BasePO {
             }
             return page;
 
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (NoSuchFieldException e) {
-            e.printStackTrace();
+        } catch (InstantiationException | IllegalAccessException | NoSuchFieldException e) {
+            throw new RuntimeException("could not load next page", e);
         }
-        return null;
     }
 
     public abstract boolean isCurrentPage();

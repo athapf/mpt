@@ -8,47 +8,61 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 /**
- * LoginPage
+ * RegisterPage
  *
  * @author thaler
- * @since 27.02.17
+ * @since 2017-06-16
  */
-public class LoginPage extends StandardPage {
+public class RegisterPage extends StandardPage {
 
     @FindBy(how = How.CSS, css = "*[id$='nameInput']")
     private InputCO nameInput;
 
+    @FindBy(how = How.CSS, css = "*[id$='nickInput']")
+    private InputCO nickInput;
+
     @FindBy(how = How.CSS, css = "*[id$='passwordInput']")
     private InputCO passwordInput;
 
-    @FindBy(how = How.CSS, css = "*[id$='loginButton']")
-    private ButtonCO loginButton;
+    @FindBy(how = How.CSS, css = "*[id$='verifyInput']")
+    private InputCO verifyInput;
 
-    @FindBy(how = How.CSS, css = "*[id$='registerLink']")
-    private LinkCO registerLink;
+    @FindBy(how = How.CSS, css = "*[id$='saveButton']")
+    private ButtonCO saveButton;
+
+    @FindBy(how = How.CSS, css = "*[id$='cancelButton']")
+    private ButtonCO cancelButton;
 
     @FindBy(how = How.CSS, css = "*[id$='message']")
     private LabelCO messageLabel;
 
     @Override
     public String getPageId() {
-        return "loginPage";
+        return "registerPage";
     }
 
     public InputCO getNameInput() {
         return nameInput;
     }
 
+    public InputCO getNickInput() {
+        return nickInput;
+    }
+
     public InputCO getPasswordInput() {
         return passwordInput;
     }
 
-    public ButtonCO getLoginButton() {
-        return loginButton;
+    public InputCO getVerifyInput() {
+        return verifyInput;
     }
 
-    public LinkCO getRegisterLink() {
-        return registerLink;
+    public ButtonCO getSaveButton() {
+        return saveButton;
+    }
+
+    public ButtonCO getCancelButton() {
+        return cancelButton;
     }
 
     public LabelCO getMessageLabel() {

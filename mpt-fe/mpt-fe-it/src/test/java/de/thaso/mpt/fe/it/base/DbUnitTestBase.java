@@ -63,12 +63,8 @@ public class DbUnitTestBase {
             databaseConnection = new DatabaseConnection(connection);
             final IDataSet dataSet = builder.build(this.getClass().getResourceAsStream("/dbunit/base-setup.xml"));
             DatabaseOperation.CLEAN_INSERT.execute(databaseConnection, dataSet);
-        } catch (DataSetException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (DatabaseUnitException e) {
-            e.printStackTrace();
+        } catch (SQLException | DatabaseUnitException e) {
+            throw new RuntimeException("could not initialize database", e);
         }
     }
 
@@ -78,12 +74,31 @@ public class DbUnitTestBase {
         try {
             IDataSet dataSet = builder.build(this.getClass().getResourceAsStream("/dbunit/" + setupFile));
             DatabaseOperation.REFRESH.execute(databaseConnection, dataSet);
-        } catch (DataSetException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (DatabaseUnitException e) {
-            e.printStackTrace();
+        } catch (SQLException | DatabaseUnitException e) {
+            throw new RuntimeException("could not update database", e);
         }
+    }
+
+    protected void updateDatabase() {
+        FlatXmlDataSetBuilder builder = new FlatXmlDataSetBuilder();
+        builder.setColumnSensing(true);
+        try {
+            IDataSet dataSet = builder.build(this.getClass().getResourceAsStream(constructResourcePath()));
+            DatabaseOperation.REFRESH.execute(databaseConnection, dataSet);
+        } catch (SQLException | DatabaseUnitException e) {
+            throw new RuntimeException("could not update database", e);
+        }
+    }
+
+    private String constructResourcePath() {
+        final StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[3];
+        final String className = this.getClass().getSimpleName();
+        final StringBuilder builder = new StringBuilder();
+        builder.append("/dbunit/");
+        builder.append(className);
+        builder.append("/");
+        builder.append(stackTraceElement.getMethodName());
+        builder.append(".xml");
+        return builder.toString();
     }
 }

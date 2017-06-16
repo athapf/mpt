@@ -79,7 +79,7 @@ public abstract class BaseCO {
                     });
             return result;
         } catch (TimeoutException e) {
-            LOG.info("waitForElement failed : " + e.getMessage());
+            LOG.info("wait for element failed: " + e.getMessage());
             return false;
         }
     }
@@ -107,7 +107,7 @@ public abstract class BaseCO {
                     LOG.info("waitForAjax - another 50 ms");
                     obj.wait(50);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    LOG.info("wait for ajaxw failed: " + e.getMessage());
                 }
             }
         }

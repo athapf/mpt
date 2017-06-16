@@ -14,9 +14,7 @@ public class MainPageIT extends SeleniumTestBase {
 
     @Test
     public void testMainPage() {
-        updateDatabase("testMainPage.xml");
-        //final LoginPage loginPage = startBrowser("main.xhtml", .class);
+        updateDatabase();
         getDriver().get(getAppUrl() + "/main.xhtml");
-        getDriver().quit();
     }
 }

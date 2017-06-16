@@ -62,12 +62,8 @@ public class DbTestBase {
             IDatabaseConnection databaseConnection = new DatabaseConnection(connection);
             IDataSet dataSet = builder.build(this.getClass().getResourceAsStream("/dbunit/base-setup.xml"));
             DatabaseOperation.CLEAN_INSERT.execute(databaseConnection, dataSet);
-        } catch (DataSetException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (DatabaseUnitException e) {
-            e.printStackTrace();
+        } catch (SQLException | DatabaseUnitException e) {
+            throw new RuntimeException("could not initialize database", e);
         }
     }
 }
