@@ -46,12 +46,12 @@ public class SeleniumTestBase extends DbUnitTestBase {
 
     @BeforeClass
     public static void initEmbeddedServer() throws Exception {
-        //appServer.startEmbeddedServer();
+        appServer.startEmbeddedServer();
     }
 
     @AfterClass
     public static void closeEmbeddedServer() throws Exception {
-        //appServer.stopEmbeddedServer();
+        appServer.stopEmbeddedServer();
     }
 
     @Rule
@@ -75,12 +75,13 @@ public class SeleniumTestBase extends DbUnitTestBase {
 
     @After
     public void tearDownSeleniumDriver() {
-        driver.close();
+        driver.quit();
     }
 
     public <T extends BasePO> T startBrowser(final String pageUrl, Class<T> pageClass) {
         final StringBuilder builder = new StringBuilder();
-        builder.append(createAppUrl()).append("/");
+        //builder.append(createAppUrl()).append("/");
+        builder.append(appServer.getApplicationUrl()).append("/");
         if(StringUtils.isNotBlank(pageUrl)) {
             builder.append(pageUrl);
             if(!StringUtils.endsWith(pageUrl, ".xhtml")) {
