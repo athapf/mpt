@@ -4,6 +4,8 @@ Library    Selenium2Library
 Library    OperatingSystem
 Library    DatabaseLibrary
 
+Resource   ../resources/login.robot
+
 Test Setup       Open test browser
 Test Teardown    Close All Browsers
 
@@ -17,61 +19,29 @@ ${LOGIN_FAIL_MSG}  Falsches Passwort
 
 Start Application
     Go to    http://localhost:8086/mpt
+
     Title Should Be    MPT
+
 
 Login with wrong password
     Go to    http://localhost:8086/mpt
 
-    Page should contain element  id=form:nameInput
-    Page should contain element  id=form:passwordInput
-    Page should contain element  id=form:loginButton
-
-    Input text  id=form:nameInput  anonymous
-    Input text  id=form:passwordInput  secret12
-
-    Click button  id=form:loginButton
+    LoginPage should be shown
+    Login with user  anonymous  secret12
 
     Page should contain  ${LOGIN_FAIL_MSG}
 
+
 Register new user and login
-    Connect To Database    org.postgresql.Driver    jdbc:postgresql://localhost:15432/mpt    mpt    mpt
-    Execute SQL    DELETE FROM T_NICK_NAME WHERE ID >= 1000000;
-    Execute SQL    COMMIT;
-    Disconnect From Database
+    Remove user from database
 
     Go to    http://localhost:8086/mpt
+    Click link  css=*[id$='registerLink']
 
-    Click link  id=form:registerLink
+    RegisterPage should be shown
+    Register new user
 
-    Page should contain element  id=form:nameInput
-    Page should contain element  id=form:nickInput
-    Page should contain element  id=form:passwordInput
-    Page should contain element  id=form:verifyInput
-    Page should contain element  id=form:saveButton
-
-    Input text  id=form:nameInput  Horst Bauer
-    Input text  id=form:nickInput  hoba
-    Input text  id=form:passwordInput  geheim123
-    Input text  id=form:verifyInput  geheim123
-
-    Click button  id=form:saveButton
-
-    Page should contain element  id=form:nameInput
-    Page should contain element  id=form:passwordInput
-    Page should contain element  id=form:loginButton
-
-    Input text  id=form:nameInput  hoba
-    Input text  id=form:passwordInput  geheim123
-
-    Click button  id=form:loginButton
+    LoginPage should be shown
+    Login with user  hoba  geheim123
 
     Page should contain  Overview
-
-                 
-*** Keywords ***
-
-Open test browser
-    Open browser  about:
-
-Close test browser
-    Close all browsers
