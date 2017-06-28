@@ -2,7 +2,7 @@ package de.thaso.mpt.fe.it.glassfish;
 
 import de.thaso.mpt.db.schema.PropertiesManager;
 import de.thaso.mpt.fe.it.base.ApplicationServerBase;
-import de.thaso.mpt.fe.it.glassfish.utils.CommandParamBuilder;
+import de.thaso.mpt.fe.it.utils.CommandParamBuilder;
 import org.apache.commons.lang3.StringUtils;
 import org.glassfish.embeddable.BootstrapProperties;
 import org.glassfish.embeddable.CommandResult;

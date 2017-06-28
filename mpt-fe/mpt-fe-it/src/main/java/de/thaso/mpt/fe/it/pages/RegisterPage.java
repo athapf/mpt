@@ -3,7 +3,6 @@ package de.thaso.mpt.fe.it.pages;
 import de.thaso.mpt.fe.it.components.ButtonCO;
 import de.thaso.mpt.fe.it.components.InputCO;
 import de.thaso.mpt.fe.it.components.LabelCO;
-import de.thaso.mpt.fe.it.components.LinkCO;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 

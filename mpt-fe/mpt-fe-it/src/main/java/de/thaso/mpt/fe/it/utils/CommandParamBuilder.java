@@ -1,4 +1,4 @@
-package de.thaso.mpt.fe.it.glassfish.utils;
+package de.thaso.mpt.fe.it.utils;
 
 import org.apache.commons.lang3.StringUtils;
 

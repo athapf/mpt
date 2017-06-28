@@ -36,7 +36,6 @@
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>${selenium.version}</version>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.glassfish.main.extras</groupId>
@@ -62,6 +61,12 @@
             <artifactId>mpt-app-ear</artifactId>
             <version>1.0-SNAPSHOT</version>
             <type>ear</type>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
         </dependency>
     </dependencies>
 
