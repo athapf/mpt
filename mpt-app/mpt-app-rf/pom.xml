@@ -11,7 +11,7 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
 
     <groupId>mpt.app</groupId>
     <artifactId>mpt-app-rf</artifactId>
@@ -45,6 +45,11 @@
                         </goals>
                     </execution>
                 </executions>
+<!--
+                <configuration>
+                    <testCasesDirectory>${project.basedir}/tests</testCasesDirectory>
+                </configuration>
+-->
                 <dependencies>
                     <dependency>
                         <groupId>org.robotframework</groupId>

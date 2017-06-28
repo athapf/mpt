@@ -6,6 +6,8 @@ Library    DatabaseLibrary
 
 Resource   ../resources/login.robot
 
+Force Tags  smoke first
+
 Test Setup       Open test browser
 Test Teardown    Close All Browsers
 
